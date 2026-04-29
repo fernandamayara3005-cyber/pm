@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja FM</title>
+
+<style>
+body { font-family: Arial; margin: 0; }
+
+/* HEADER */
+header {
+  background: #111;
+  color: rgb(221, 11, 169);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+/* PRODUTOS */
+.produtos {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.produto {
+  border: 1px solid #f50f7a;
+  padding: 15px;
+  text-align: center;
+  width: 200px;
+}
+
+.produto img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* BOTÃO */
+button {
+  background: #28a745;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #218838;
+}
+
+/* CARRINHO */
+.carrinho {
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 320px;
+  height: 100%;
+  background: #ffffff;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.carrinho.ativo {
+  right: 0;
+}
+
+.carrinho h2 {
+  margin-top: 0;
+}
+
+.finalizar {
+  background: #25d366;
+  margin-top: 10px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .produtos {
+    justify-content: center;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <h1>🛍️ 𝓕𝓮𝓻𝓷𝓪𝓷𝓭𝓪 𝓜𝓪𝔂𝓪𝓻𝓪 𝓛𝓪𝓼𝓱💖</h1>
+  <button onclick="toggleCarrinho()">Carrinho 🛒 (<span id="contador">0</span>)</button>
+</header>
+
+<main class="produtos">
+
+  <div class="produto">
+    <img src="fotos/classico.png">
+    <h3>Volume Clássico</h3>
+    <p>R$ 100</p>
+    <button onclick="addCarrinho('Volumen Clássico', 100)">Adicionar</button>
+  </div>
+
+  <div class="produto">
+    <img src="fotos/russo2.png">
+    <h3>Volume Russo</h3>
+    <p>R$ 175</p>
+    <button onclick="addCarrinho('Volume Russo', 175)">Adicionar</button>
+  </div>
+
+  <div class="produto">
+    <img src="fotos/Light.png">
+    <h3>Volume Light</h3>
+  <p>R$ 125</p>
+    <button onclick="addCarrinho('Volume Light', 125)">Adicionar</button>
+  </div>
+
+  <div class="produto">
+    <img src="fotos/efeito fox.png">
+    <h3>Volume Efeito Fox</h3>
+  <p>R$ 140</p>
+    <button onclick="addCarrinho('Volume Efeito Fox', 140)">Adicionar</button>
+  </div>
+
+    <div class="produto">
+    <img src="fotos/efeito sirena.png">
+    <h3>Volume Efeito Sirena</h3>
+  <p>R$ 100</p>
+    <button onclick="addCarrinho('Volume Efeito Sirena', 100)">Adicionar</button>
+  </div>
+
+  <div class="produto">
+    <img src="fotos/efeito deliniado.png">
+    <h3>Volume Efeito Delineado</h3>
+  <p>R$ 150</p>
+    <button onclick="addCarrinho('Volume Efeito Sirena', 150)">Adicionar</button>
+  </div>
+
+   <div class="produto">
+    <img src="fotos/brasileiro.png">
+    <h3>Volume Brasileiro</h3>
+  <p>R$ 120</p>
+    <button onclick="addCarrinho('Volume Brasileiro', 120)">Adicionar</button>
+  </div>  
+
+  <div class="produto">
+    <img src="fotos/brasileiro express.png">
+    <h3>Volume Brasileiro Express</h3>
+  <p>R$ 90</p>
+    <button onclick="addCarrinho('Volume Brasileiro Express', 90)">Adicionar</button>
+  </div>  
+
+  <div class="produto">
+    <img src="fotos/mega brasileiro.png">
+    <h3>Volume Mega Brasileiro </h3>
+  <p>R$ 155</p>
+    <button onclick="addCarrinho('Volume Mega Brasileiro', 155)">Adicionar</button>
+  </div>  
+
+  <div class="produto">
+    <img src="fotos/egipcio.png">
+    <h3>Volume Egipcio</h3>
+  <p>R$ 135</p>
+    <button onclick="addCarrinho('Volume Egipcio', 135)">Adicionar</button>
+  </div>
+
+   <div class="produto">
+    <img src="fotos/egipcio express.png">
+    <h3>Volume Egipcio Express</h3>
+  <p>R$ 95</p>
+    <button onclick="addCarrinho('Volume Egipcio Express', 95)">Adicionar</button>
+  </div>
+
+   <div class="produto">
+    <img src="fotos/mega egipcio.png">
+    <h3>Volume Mega Egipcio</h3>
+  <p>R$ 175</p>
+    <button onclick="addCarrinho('Volume Mega Egipcio', 175)">Adicionar</button>
+  </div>
+
+  
+   <div class="produto">
+    <img src="fotos/mapping gatinho.png">
+    <h3>Volume Mapping Gatinho</h3>
+  <p>R$ 110</p>
+    <button onclick="addCarrinho('Volume Mapping Gatinho', 110)">Adicionar</button>
+  </div>
+
+
+   <div class="produto">
+    <img src="fotos/lash liffting.png">
+    <h3>Lash Lifting</h3>
+  <p>R$ 115</p>
+    <button onclick="addCarrinho('Lash Lifting', 115)">Adicionar</button>
+  </div>
+</main>
+
+<!-- CARRINHO -->
+<aside id="carrinho" class="carrinho">
+  <h2>Seu Carrinho</h2>
+  <ul id="lista"></ul>
+  <h3>Total: R$ <span id="total">0</span></h3>
+
+  <button class="finalizar" onclick="finalizarPedido()">Finalizar no WhatsApp</button>
+</aside>
+
+<script>
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+let total = 0;
+
+function addCarrinho(nome, preco) {
+  carrinho.push({ nome, preco });
+  salvar();
+}
+
+function atualizarCarrinho() {
+  const lista = document.getElementById("lista");
+  const totalSpan = document.getElementById("total");
+  const contador = document.getElementById("contador");
+
+  lista.innerHTML = "";
+  total = 0;
+
+  carrinho.forEach((item, index) => {
+    total += item.preco;
+
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${item.nome} - R$ ${item.preco}
+      <button onclick="remover(${index})">X</button>
+    `;
+    lista.appendChild(li);
+  });
+
+  totalSpan.innerText = total;
+  contador.innerText = carrinho.length;
+}
+
+function remover(index) {
+  carrinho.splice(index, 1);
+  salvar();
+}
+
+function toggleCarrinho() {
+  document.getElementById("carrinho").classList.toggle("ativo");
+}
+
+function salvar() {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  atualizarCarrinho();
+}
+
+/* FINALIZAR NO WHATSAPP */
+function finalizarPedido() {
+  if (carrinho.length === 0) {
+    alert("Carrinho vazio!");
+    return;
+  }
+
+  let mensagem = "Pedido:%0A";
+
+  carrinho.forEach(item => {
+    mensagem += `${item.nome} - R$ ${item.preco}%0A`;
+  });
+
+  mensagem += `Total: R$ ${total}`;
+
+  window.open(`https://wa.me/5512982100936?text=${mensagem}`);
+}
+
+atualizarCarrinho();
+</script>
+
+</body>
+</html>
